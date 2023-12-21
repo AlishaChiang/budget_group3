@@ -13,14 +13,17 @@ public class BudgetService
 
     public decimal Query(DateTime start, DateTime end)
     {
-        var budgets= _budgetRepo.GetAll();
-        var budgetModels = budgets.Where(x => start.Month >= x.YearMonthDateTime.Month && end.Month <= x.YearMonthDateTime.Month);
+        var budgets = _budgetRepo.GetAll();
+        var budgetModels = budgets.Where(x =>
+            start.Month >= x.YearMonthDateTime.Month && end.Month <= x.YearMonthDateTime.Month);
         decimal totalBudget = 0m;
         for (var s = start; s <= end; s.AddDays(1))
         {
-            totalBudget += budgetModels.First(x => x.YearMonthDateTime.Month == s.Month).DailyAmount;
+            totalBudget += budgetModels
+                .First(x => x.YearMonthDateTime.Month == s.Month 
+                            && x.YearMonthDateTime.Year == s.Year).DailyAmount;
         }
-        
+
         return totalBudget;
     }
 }
@@ -38,9 +41,9 @@ public class BudgetModel
 
     private decimal ConvertToDailyAmount()
     {
-        var year = Convert.ToInt32(YearMonth.Substring(0,4));
-        var month = Convert.ToInt32(YearMonth.Substring(4,2));
-        
+        var year = Convert.ToInt32(YearMonth.Substring(0, 4));
+        var month = Convert.ToInt32(YearMonth.Substring(4, 2));
+
         return (decimal)Amount / DateTime.DaysInMonth(year, month);
     }
 
