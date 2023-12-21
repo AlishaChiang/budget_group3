@@ -15,7 +15,8 @@ public class BudgetService
     {
         var budgets = _budgetRepo.GetAll();
         var budgetModels = budgets.Where(x =>
-            start.Month >= x.YearMonthDateTime.Month && end.Month <= x.YearMonthDateTime.Month);
+            start.Month >= x.YearMonthDateTime.Month && end.Month <= x.YearMonthDateTime.Month &&
+            start.Year >= x.YearMonthDateTime.Year && end.Year <= x.YearMonthDateTime.Year);
         decimal totalBudget = 0m;
         for (var s = start; s <= end; s.AddDays(1))
         {
