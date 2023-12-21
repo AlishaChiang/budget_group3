@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\workshop\\Budget\\BudgetTests\\BudgetTests.csproj": {}
+    "D:\\workshop\\budget_group3\\BudgetTests\\BudgetTests.csproj": {}
   },
   "projects": {
-    "D:\\workshop\\Budget\\BudgetTests\\BudgetTests.csproj": {
+    "D:\\workshop\\budget_group3\\BudgetTests\\BudgetTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\workshop\\Budget\\BudgetTests\\BudgetTests.csproj",
+        "projectUniqueName": "D:\\workshop\\budget_group3\\BudgetTests\\BudgetTests.csproj",
         "projectName": "BudgetTests",
-        "projectPath": "D:\\workshop\\Budget\\BudgetTests\\BudgetTests.csproj",
+        "projectPath": "D:\\workshop\\budget_group3\\BudgetTests\\BudgetTests.csproj",
         "packagesPath": "C:\\Users\\alisha.chiang29\\.nuget\\packages\\",
-        "outputPath": "D:\\workshop\\Budget\\BudgetTests\\obj\\",
+        "outputPath": "D:\\workshop\\budget_group3\\BudgetTests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\alisha.chiang29\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\workshop\\Budget\\Budget\\Budget.csproj",
+      "projectUniqueName": "D:\\workshop\\budget_group3\\Budget\\Budget.csproj",
       "projectName": "Budget",
-      "projectPath": "D:\\workshop\\Budget\\Budget\\Budget.csproj",
+      "projectPath": "D:\\workshop\\budget_group3\\Budget\\Budget.csproj",
       "packagesPath": "C:\\Users\\alisha.chiang29\\.nuget\\packages\\",
-      "outputPath": "D:\\workshop\\Budget\\Budget\\obj\\",
+      "outputPath": "D:\\workshop\\budget_group3\\Budget\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\alisha.chiang29\\AppData\\Roaming\\NuGet\\NuGet.Config",
