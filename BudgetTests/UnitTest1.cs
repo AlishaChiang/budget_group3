@@ -54,4 +54,31 @@ public class Tests
         Assert.That(query, Is.EqualTo(expected));
         Assert.Pass();
     }
+    [Test]
+    public void query_no_data()
+    {
+        _budgetRepo.GetAll().Returns(new List<BudgetModel>
+        {
+            new BudgetModel(yearMonth: "202301", amount: 3100)
+            
+        });
+        var query = _budgetService.Query(new DateTime(2023, 02, 01), new DateTime(2023, 02, 08));
+        decimal expected = 0;
+        Assert.That(query, Is.EqualTo(expected));
+        Assert.Pass();
+    }
+    [Test]
+    public void query_invalid_date()
+    {
+        _budgetRepo.GetAll().Returns(new List<BudgetModel>
+        {
+            new BudgetModel(yearMonth: "202301", amount: 3100),
+            new BudgetModel(yearMonth: "202302", amount: 280)
+            
+        });
+        var query = _budgetService.Query(new DateTime(2023, 02, 01), new DateTime(2023, 01, 08));
+        decimal expected = 0;
+        Assert.That(query, Is.EqualTo(expected));
+        Assert.Pass();
+    }
 }

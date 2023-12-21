@@ -19,8 +19,8 @@ public class BudgetService
         for (var s = start; s <= end; s = s.AddDays(1))
         {
             totalBudget += budgets
-                .First(x => x.YearMonthDateTime.Month == s.Month 
-                            && x.YearMonthDateTime.Year == s.Year).DailyAmount;
+                .FirstOrDefault(x => x.YearMonthDateTime.Month == s.Month 
+                            && x.YearMonthDateTime.Year == s.Year)?.DailyAmount ?? 0;
         }
 
         return totalBudget;
