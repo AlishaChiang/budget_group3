@@ -34,6 +34,16 @@ public interface IBudgetRepo
 
 public class BudgetModel
 {
+    public BudgetModel()
+    {
+    }
+
+    public BudgetModel(string yearMonth, int amount)
+    {
+        YearMonth = yearMonth;
+        Amount = amount;
+    }
+
     public string YearMonth { get; set; }
     public int Amount { get; set; }
     public decimal DailyAmount => ConvertToDailyAmount();
