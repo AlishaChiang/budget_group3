@@ -16,7 +16,7 @@ public class Tests
     }
 
     [Test]
-    public void Test1()
+    public void query_whole_month()
     {
         _budgetRepo.GetAll().Returns(new List<BudgetModel>
         {
@@ -24,6 +24,33 @@ public class Tests
         });
         var query = _budgetService.Query(new DateTime(2023, 01, 01), new DateTime(2023, 01, 31));
         decimal expected = 3100;
+        Assert.That(query, Is.EqualTo(expected));
+        Assert.Pass();
+    }
+    
+    [Test]
+    public void query_partial_month()
+    {
+        _budgetRepo.GetAll().Returns(new List<BudgetModel>
+        {
+            new BudgetModel(yearMonth: "202301", amount: 3100)
+        });
+        var query = _budgetService.Query(new DateTime(2023, 01, 01), new DateTime(2023, 01, 08));
+        decimal expected = 800;
+        Assert.That(query, Is.EqualTo(expected));
+        Assert.Pass();
+    }   
+    
+    [Test]
+    public void query_cross_month()
+    {
+        _budgetRepo.GetAll().Returns(new List<BudgetModel>
+        {
+            new BudgetModel(yearMonth: "202301", amount: 3100),new BudgetModel(yearMonth: "202302", amount: 2800),
+            
+        });
+        var query = _budgetService.Query(new DateTime(2023, 01, 01), new DateTime(2023, 02, 08));
+        decimal expected = 3900;
         Assert.That(query, Is.EqualTo(expected));
         Assert.Pass();
     }
