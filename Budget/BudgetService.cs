@@ -14,13 +14,11 @@ public class BudgetService
     public decimal Query(DateTime start, DateTime end)
     {
         var budgets = _budgetRepo.GetAll();
-        var budgetModels = budgets.Where(x =>
-            start.Month >= x.YearMonthDateTime.Month && end.Month <= x.YearMonthDateTime.Month &&
-            start.Year >= x.YearMonthDateTime.Year && end.Year <= x.YearMonthDateTime.Year);
+        
         decimal totalBudget = 0m;
-        for (var s = start; s <= end; s.AddDays(1))
+        for (var s = start; s <= end; s = s.AddDays(1))
         {
-            totalBudget += budgetModels
+            totalBudget += budgets
                 .First(x => x.YearMonthDateTime.Month == s.Month 
                             && x.YearMonthDateTime.Year == s.Year).DailyAmount;
         }
